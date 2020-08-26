@@ -1,0 +1,762 @@
+.md-perspective {
+	height: 100%; overflow: hidden;
+}
+.md-perspective body {
+	height: 100%; overflow: hidden;
+}
+.viamagus-menu-top-row a {
+	color: rgb(255, 255, 255);
+}
+#viamagus_Contact_Form_4125 .viamagus-button-default {
+	background: rgba(61, 153, 162, 1); border-radius: 0px; border: 0px currentColor; border-image: none; font-weight: normal; margin-top: 20px;
+}
+.modal.fade.in {
+	top: 13%;
+}
+.md-perspective body {
+	background: rgb(34, 34, 34); perspective: 600px; -webkit-perspective: 600px; -moz-perspective: 600px;
+}
+.md-modal {
+	left: 50%; top: 50%; width: 50%; height: auto; visibility: hidden; position: fixed; z-index: 2000; min-width: 320px; max-width: 630px; transform: translateX(-50%) translateY(-50%); backface-visibility: hidden; -webkit-transform: translateX(-50%) translateY(-50%); -webkit-backface-visibility: hidden; -moz-transform: translateX(-50%) translateY(-50%); -moz-backface-visibility: hidden;
+}
+.md-show {
+	visibility: visible;
+}
+.md-overlay {
+	background: rgba(143, 27, 15, 0.8); transition:0.3s; left: 0px; top: 0px; width: 100%; height: 100%; visibility: hidden; position: fixed; z-index: 1000; opacity: 0; -webkit-transition: all .3s; -moz-transition: all .3s;
+}
+.md-show ~ .md-overlay {
+	visibility: visible; opacity: 1;
+}
+.md-content {
+	background: rgb(231, 76, 60); margin: 0px auto; border-radius: 3px; color: rgb(255, 255, 255); position: relative;
+}
+.md-content h3 {
+	background: rgba(0, 0, 0, 0.1); margin: 0px; padding: 0.4em; border-radius: 3px 3px 0px 0px; text-align: center; font-size: 2.4em; font-weight: 300; opacity: 0.8;
+}
+.md-content > div {
+	margin: 0px; padding: 15px 40px 30px; font-size: 1.15em; font-weight: 300;
+}
+.md-content > div p {
+	margin: 0px; padding: 10px 0px;
+}
+.md-content > div ul {
+	margin: 0px; padding: 0px 0px 30px 20px;
+}
+.md-content > div ul li {
+	padding: 5px 0px;
+}
+.md-content button {
+	margin: 0px auto; font-size: 0.8em; display: block;
+}
+.md-effect-1 .md-content {
+	transition:0.3s; opacity: 0; transform: scale(0.7); -webkit-transform: scale(.7); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: scale(.7);
+}
+.md-show.md-effect-1 .md-content {
+	opacity: 1; transform: scale(1); -webkit-transform: scale(1); -moz-transform: scale(1);
+}
+.md-effect-2 .md-content {
+	transition:0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9); opacity: 0; transform: translateX(20%); -webkit-transform: translateX(20%); -webkit-transition: all .3s cubic-bezier(.25, .5, .5, .9); -moz-transition: all .3s cubic-bezier(.25, .5, .5, .9); -moz-transform: translateX(20%);
+}
+.md-show.md-effect-2 .md-content {
+	opacity: 1; transform: translateX(0px); -webkit-transform: translateX(0); -moz-transform: translateX(0);
+}
+.md-effect-3 .md-content {
+	transition:0.3s; opacity: 0; transform: translateY(20%); -webkit-transform: translateY(20%); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: translateY(20%);
+}
+.md-show.md-effect-3 .md-content {
+	opacity: 1; transform: translateY(0px); -webkit-transform: translateY(0); -moz-transform: translateY(0);
+}
+.md-effect-4 .md-content {
+	opacity: 0; transform: scale(0) rotate(720deg); -webkit-transform: scale(0) rotate(720deg); -moz-transform: scale(0) rotate(720deg);
+}
+.md-show.md-effect-4 ~ .md-overlay {
+	transition:0.5s; -webkit-transition: all .5s; -moz-transition: all .5s;
+}
+.md-effect-4 .md-content {
+	transition:0.5s; -webkit-transition: all .5s; -moz-transition: all .5s;
+}
+.md-show.md-effect-4 .md-content {
+	opacity: 1; transform: scale(1) rotate(0deg); -webkit-transform: scale(1) rotate(0deg); -moz-transform: scale(1) rotate(0deg);
+}
+.md-effect-5.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-5 .md-content {
+	opacity: 0; transform: translateZ(600px) rotateX(20deg); transform-style: preserve-3d; -webkit-transform: translateZ(600px) rotateX(20deg); -moz-transform: translateZ(600px) rotateX(20deg); -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-5 .md-content {
+	transition:0.3s ease-in; opacity: 1; transform: translateZ(0px) rotateX(0deg); -webkit-transform: translateZ(0px) rotateX(0deg); -webkit-transition: all .3s ease-in; -moz-transition: all .3s ease-in; -moz-transform: translateZ(0px) rotateX(0deg);
+}
+.md-effect-6.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-6 .md-content {
+	opacity: 0; transform: translate(30%) translateZ(600px) rotate(10deg); transform-style: preserve-3d; -webkit-transform: translate(30%) translateZ(600px) rotate(10deg); -moz-transform: translate(30%) translateZ(600px) rotate(10deg); -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-6 .md-content {
+	transition:0.3s ease-in; opacity: 1; transform: translate(0%) translateZ(0px) rotate(0deg); -webkit-transform: translate(0%) translateZ(0) rotate(0deg); -webkit-transition: all .3s ease-in; -moz-transition: all .3s ease-in; -moz-transform: translate(0%) translateZ(0) rotate(0deg);
+}
+.md-effect-7 {
+	top: 0px; transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%);
+}
+.md-effect-7 .md-content {
+	transition:0.3s; opacity: 0; transform: translateY(-200%); -webkit-transform: translateY(-200%); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: translateY(-200%);
+}
+.md-show.md-effect-7 .md-content {
+	border-radius: 0px 0px 3px 3px; opacity: 1; transform: translateY(0%); -webkit-transform: translateY(0%); -moz-transform: translateY(0%);
+}
+.md-effect-8.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-8 .md-content {
+	transition:0.3s; opacity: 0; transform: rotateY(-70deg); transform-style: preserve-3d; -webkit-transform: rotateY(-70deg); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: rotateY(-70deg); -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-8 .md-content {
+	opacity: 1; transform: rotateY(0deg); -webkit-transform: rotateY(0deg); -moz-transform: rotateY(0deg);
+}
+.md-effect-9.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-9 .md-content {
+	transition:0.3s; opacity: 0; transform: rotateX(-70deg); transform-style: preserve-3d; -webkit-transform: rotateX(-70deg); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: rotateX(-70deg); -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-9 .md-content {
+	opacity: 1; transform: rotateX(0deg); -webkit-transform: rotateX(0deg); -moz-transform: rotateX(0deg);
+}
+.md-effect-10.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-10 .md-content {
+	transform-origin: 50% 0%; transition:0.3s; opacity: 0; transform: rotateX(-60deg); transform-style: preserve-3d; -webkit-transform: rotateX(-60deg); -webkit-transition: all .3s; -moz-transition: all .3s; -webkit-transform-origin: 50% 0; -moz-transform: rotateX(-60deg); -moz-transform-origin: 50% 0; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-10 .md-content {
+	opacity: 1; transform: rotateX(0deg); -webkit-transform: rotateX(0deg); -moz-transform: rotateX(0deg);
+}
+.md-effect-11 .md-content {
+	transition:0.3s; opacity: 0; transform: scale(2); -webkit-transform: scale(2); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: scale(2);
+}
+.md-show.md-effect-11 .md-content {
+	opacity: 1; transform: scale(1); -webkit-transform: scale(1); -moz-transform: scale(1);
+}
+.md-effect-12 .md-content {
+	transition:0.3s; opacity: 0; transform: scale(0.8); -webkit-transform: scale(.8); -webkit-transition: all .3s; -moz-transition: all .3s; -moz-transform: scale(.8);
+}
+.md-show.md-effect-12 ~ .md-overlay {
+	background: rgb(231, 76, 60);
+}
+.md-effect-12 .md-content h3 {
+	background: 0px 0px;
+}
+.md-effect-12 .md-content {
+	background: 0px 0px;
+}
+.md-show.md-effect-12 .md-content {
+	opacity: 1; transform: scale(1); -webkit-transform: scale(1); -moz-transform: scale(1);
+}
+.md-effect-13.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-13 .md-content {
+	opacity: 0; transform: translateZ(-3000px) rotateY(90deg); transform-style: preserve-3d; -webkit-transform: translateZ(-3000px) rotateY(90deg); -moz-transform: translateZ(-3000px) rotateY(90deg); -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-13 .md-content {
+	animation:slit 0.7s ease-out forwards; -webkit-animation: slit .7s forwards ease-out; -moz-animation: slit .7s forwards ease-out;
+}
+.md-effect-14.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-14 .md-content {
+	transform-origin: 0% 100%; transition:0.3s ease-out; opacity: 0; transform: translateY(100%) rotateX(90deg); transform-style: preserve-3d; -webkit-transform: translateY(100%) rotateX(90deg); -webkit-transition: all .3s ease-out; -moz-transition: all .3s ease-out; -webkit-transform-origin: 0 100%; -moz-transform: translateY(100%) rotateX(90deg); -moz-transform-origin: 0 100%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-14 .md-content {
+	opacity: 1; transform: translateY(0%) rotateX(0deg); -webkit-transform: translateY(0%) rotateX(0deg); -moz-transform: translateY(0%) rotateX(0deg);
+}
+.md-effect-15.md-modal {
+	perspective: 1300px; -webkit-perspective: 1300px; -moz-perspective: 1300px;
+}
+.md-effect-15 .md-content {
+	transform-origin: 0% 100%; transition:0.3s; opacity: 0; transform: translateZ(100px) translateX(-30%) rotateY(90deg); transform-style: preserve-3d; -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg); -webkit-transition: all .3s; -moz-transition: all .3s; -webkit-transform-origin: 0 100%; -moz-transform: translateZ(100px) translateX(-30%) rotateY(90deg); -moz-transform-origin: 0 100%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-15 .md-content {
+	opacity: 1; transform: translateZ(0px) translateX(0%) rotateY(0deg); -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg); -moz-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+}
+.md-show.md-effect-16 ~ .md-overlay {
+	background: rgba(180, 46, 32, 0.5);
+}
+.md-show.md-effect-16 ~ .container {
+	-webkit-filter: blur(3px); -moz-filter: blur(3px);
+}
+.md-effect-16 .md-content {
+	opacity: 0; transform: translateY(-5%); -webkit-transform: translateY(-5%); -moz-transform: translateY(-5%);
+}
+.md-show.md-effect-16 ~ .container {
+	transition:0.3s; -webkit-transition: all .3s; -moz-transition: all .3s;
+}
+.md-effect-16 .md-content {
+	transition:0.3s; -webkit-transition: all .3s; -moz-transition: all .3s;
+}
+.md-show.md-effect-16 .md-content {
+	opacity: 1; transform: translateY(0px); -webkit-transform: translateY(0); -moz-transform: translateY(0);
+}
+.md-show.md-effect-17 ~ .container {
+	transition:transform 0.3s; height: 100%; overflow: hidden; -webkit-transition: -webkit-transform .3s; -moz-transition: -moz-transform .3s;
+}
+.md-show.md-effect-17 ~ .container {
+	transform-origin: 50% 0%; transform: rotateX(-2deg); transform-style: preserve-3d; -webkit-transform: rotateX(-2deg); -webkit-transform-origin: 50% 0%; -moz-transform: rotateX(-2deg); -moz-transform-origin: 50% 0%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-17 ~ .md-overlay {
+	transform-origin: 50% 0%; transform: rotateX(-2deg); transform-style: preserve-3d; -webkit-transform: rotateX(-2deg); -webkit-transform-origin: 50% 0%; -moz-transform: rotateX(-2deg); -moz-transform-origin: 50% 0%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-effect-17 .md-content {
+	opacity: 0; transform: translateY(200%); -webkit-transform: translateY(200%); -moz-transform: translateY(200%);
+}
+.md-show.md-effect-17 .md-content {
+	transition:0.3s 0.2s; opacity: 1; transform: translateY(0px); -webkit-transform: translateY(0); -webkit-transition: all .3s .2s; -moz-transition: all .3s .2s; -moz-transform: translateY(0);
+}
+.md-show.md-effect-18 ~ .container {
+	height: 100%; overflow: hidden;
+}
+.md-show.md-effect-18 ~ .md-overlay {
+	background: rgba(143, 27, 15, 0.8); transition:0.5s; -webkit-transition: all .5s; -moz-transition: all .5s;
+}
+.md-show.md-effect-18 ~ .container {
+	transform-origin: 0% 50%; animation:rotateRightSideFirst 0.5s ease-in forwards; transform-style: preserve-3d; -webkit-animation: rotateRightSideFirst .5s forwards ease-in; -moz-animation: rotateRightSideFirst .5s forwards ease-in; -webkit-transform-origin: 0% 50%; -moz-transform-origin: 0% 50%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-18 ~ .md-overlay {
+	transform-origin: 0% 50%; animation:rotateRightSideFirst 0.5s ease-in forwards; transform-style: preserve-3d; -webkit-animation: rotateRightSideFirst .5s forwards ease-in; -moz-animation: rotateRightSideFirst .5s forwards ease-in; -webkit-transform-origin: 0% 50%; -moz-transform-origin: 0% 50%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-effect-18 .md-content {
+	opacity: 0; transform: translateX(200%); -webkit-transform: translateX(200%); -moz-transform: translateX(200%);
+}
+.md-show.md-effect-18 .md-content {
+	transition:0.5s 0.1s; opacity: 1; transform: translateX(0px); -webkit-transform: translateX(0); -webkit-transition: all .5s .1s; -moz-transition: all .5s .1s; -moz-transform: translateX(0);
+}
+.md-show.md-effect-19 ~ .container {
+	height: 100%; overflow: hidden;
+}
+.md-show.md-effect-19 ~ .md-overlay {
+	transition:0.5s; -webkit-transition: all .5s; -moz-transition: all .5s;
+}
+.md-show.md-effect-19 ~ .container {
+	transform-origin: 50% 100%; animation:OpenTop 0.5s ease-in forwards; transform-style: preserve-3d; -webkit-animation: OpenTop .5s forwards ease-in; -moz-animation: OpenTop .5s forwards ease-in; -webkit-transform-origin: 50% 100%; -moz-transform-origin: 50% 100%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-show.md-effect-19 ~ .md-overlay {
+	transform-origin: 50% 100%; animation:OpenTop 0.5s ease-in forwards; transform-style: preserve-3d; -webkit-animation: OpenTop .5s forwards ease-in; -moz-animation: OpenTop .5s forwards ease-in; -webkit-transform-origin: 50% 100%; -moz-transform-origin: 50% 100%; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d;
+}
+.md-effect-19 .md-content {
+	opacity: 0; transform: translateY(-200%); -webkit-transform: translateY(-200%); -moz-transform: translateY(-200%);
+}
+.md-show.md-effect-19 .md-content {
+	transition:0.5s 0.1s; opacity: 1; transform: translateY(0px); -webkit-transform: translateY(0); -webkit-transition: all .5s .1s; -moz-transition: all .5s .1s; -moz-transform: translateY(0);
+}
+@media screen and (max-width:32em)
+{
+body {
+	font-size: 75%;
+}
+}
+.vm-continue-help {
+	border-color: rgb(255, 212, 0); color: rgb(0, 0, 0); padding-top: 10px; padding-bottom: 8px; font-size: 16px !important; background-image: none; background-color: rgb(255, 212, 0);
+}
+.vm-continue-help:hover {
+	border-color: rgba(255, 255, 255, 0.81); color: rgb(0, 0, 0); background-image: none; background-color: rgba(255, 255, 255, 0.81);
+}
+.vm-singlepage-payment {
+	border-color: rgb(45, 216, 45); padding: 10px 30px; width: 100%; color: rgb(255, 255, 255); font-size: 16px !important; background-image: none; background-color: rgb(45, 216, 45);
+}
+.vm-singlepage-payment:hover {
+	border-color: rgba(91, 183, 91, 0.8); width: 100%; background-image: none; background-color: rgba(91, 183, 91, 0.8);
+}
+.vm-singlepage-getaquote {
+	border-color: rgb(247, 230, 29); padding: 10px; width: 100%; color: rgb(0, 0, 0); font-size: 16px !important; font-weight: bold; background-image: none; background-color: rgb(247, 230, 29);
+}
+.vm-singlepage-getaquote:hover {
+	border-color: rgba(247, 230, 29, 0.75); width: 100%; background-image: none; background-color: rgba(247, 230, 29, 0.75);
+}
+.vm-singlepage-getaquote:focus {
+	border-color: rgba(247, 230, 29, 0.75); width: 100%; background-image: none; background-color: rgba(247, 230, 29, 0.75);
+}
+.vm-single-page-submit {
+	border-color: rgb(61, 154, 162); padding: 10px 30px 8px; color: rgb(255, 255, 255); font-size: 16px !important; font-weight: bold; background-image: none; background-color: rgb(61, 154, 162);
+}
+.vm-single-page-submit:hover {
+	border-color: rgb(51, 51, 51); background-image: none; background-color: rgb(51, 51, 51);
+}
+.vm-single-page-submit:focus {
+	border-color: rgb(51, 51, 51); background-image: none; background-color: rgb(51, 51, 51);
+}
+.modal-backdrop {
+	z-index: 99999;
+}
+.vm-cover-section-link:hover {
+	text-decoration: none;
+}
+.vm-launchpage-popup .md-content {
+	background: rgb(52, 152, 219);
+}
+.md-overlay {
+	background: rgba(52, 152, 219, 0.4);
+}
+.vm-launchpage-popup .subtitle {
+	line-height: 1.3; font-size: 16px;
+}
+.vm-launchpage-popup .description {
+	font-size: 14px;
+}
+.vm-comingsoon-help:hover {
+	
+}
+.vm-comingsoon-plus:hover {
+	
+}
+.vm-icon {
+	text-align: left;
+}
+.vm-icon img {
+	width: 36px;
+}
+.vm-icon-desc {
+	text-align: left; padding-top: 10px; padding-right: 10px; font-size: 16px;
+}
+.vm-sign-up-section .col-sm-4 {
+	color: rgb(255, 212, 0); padding-left: 0px;
+}
+.vm-show-more-features {
+	display: none;
+}
+.vm-features-row-2 {
+	display: block;
+}
+.vm-features-row-3 {
+	display: block;
+}
+i.fa.fa-arrow-right {
+	top: -2px; position: relative;
+}
+.vm-comingsoon-help {
+	padding: 20px 25px; border-radius: 30px; border: 0px rgb(52, 152, 219); border-image: none; left: 5px; top: 105px; color: rgb(255, 255, 255); font-size: 36px; font-weight: 700; display: none; position: fixed; background-color: rgb(52, 152, 219);
+}
+@media all and (max-width:767px)
+{
+.vm-launchpage-popup .subtitle {
+	font-size: 14px;
+}
+.vm-launchpage-popup .description {
+	font-size: 12px;
+}
+.md-content h3 {
+	font-size: 3em;
+}
+.vm-continue-help {
+	font-size: 12px !important;
+}
+.vm-icon {
+	text-align: center;
+}
+.vm-icon img {
+	width: 64px;
+}
+.vm-icon-desc {
+	text-align: center; padding-top: 10px; padding-left: 20px; font-size: 14px;
+}
+.vm-sign-up-section .col-sm-4 {
+	color: rgb(255, 212, 0); padding-top: 10px;
+}
+.vm-features-row-2 {
+	display: none;
+}
+.vm-features-row-3 {
+	display: none;
+}
+.vm-show-more-features {
+	text-align: center; color: rgb(214, 214, 226); font-size: 14px; margin-top: 10px; margin-bottom: 5px; display: block;
+}
+.vm-show-more-features:hover {
+	color: rgb(255, 212, 0);
+}
+}
+.vm-comingsoon-signup {
+	padding: 16px; border-radius: 40px; border: 0px rgb(255, 212, 0); transition:0.2s ease-in; border-image: none; top: 45%; right: 5px; color: rgb(0, 0, 0); font-size: 36px; font-weight: 700; position: fixed; box-shadow: 0px 0px 0px 0px transparent; background-color: rgb(255, 212, 0); -webkit-transition: all .2s ease-in; -moz-transition: all .2s ease-in;
+}
+.vm-comingsoon-signup:hover {
+	background: rgb(255, 255, 255); transition:0.2s ease-out; color: rgb(255, 212, 0); box-shadow: 0px 0px 30px 0px rgba(0,199,236,0.5); -webkit-transition: all .2s ease-out; -moz-transition: all .2s ease-out;
+}
+.vm-comingsoon-signup {
+	transition:background-color 0.3s; animation:button-bounce 2300ms cubic-bezier(0.165, 0.84, 0.44, 1) infinite forwards; -webkit-transition: background-color .3s ease; -moz-transition: background-color .3s ease; -webkit-animation: button-bounce 2300ms forwards infinite cubic-bezier(.165, .84, .44, 1); -moz-animation: button-bounce 2300ms forwards infinite cubic-bezier(.165, .84, .44, 1);
+}
+.vm-comingsoon-signup::after {
+	border-radius: 0px; animation:button-blip 2200ms cubic-bezier(0.215, 0.61, 0.355, 1) infinite forwards; left: 0px; top: 0px; width: 100%; height: 100%; content: ""; box-shadow: 0px 0px 30px 0px rgba(0,199,236,0.5); background-color: rgb(255, 212, 0); -webkit-animation: button-blip 2200ms forwards infinite cubic-bezier(.215, .61, .355, 1); -moz-animation: button-blip 2200ms forwards infinite cubic-bezier(.215, .61, .355, 1);
+}
+.vm-comingsoon-signup:hover::after {
+	border-color: transparent;
+}
+.overlay-wrapper {
+	width: 100%; height: 100%; display: table; min-height: 100%;
+}
+.overlay-wrapper-container {
+	vertical-align: middle; display: table-cell;
+}
+.vm-launchpage-popup {
+	font-family: open sans;
+}
+.vm-signup-overlay {
+	background: rgb(52, 152, 219); left: 0px; top: 0px; width: 100%; height: 100%; font-family: open sans; position: fixed; z-index: 9999;
+}
+.vm-signup-overlay .overlay-close {
+	background: url("https://dc0929b8ca710a164ebf-1afed5c6a7a10de831cdc5ce3fb8316d.ssl.cf1.rackcdn.com/1541570103664crossblack.png") no-repeat center; border: currentColor; border-image: none; top: 20px; width: 40px; height: 40px; right: 20px; color: transparent; text-indent: 200%; overflow: hidden; position: absolute; z-index: 99999;
+}
+.overlay-door {
+	transition:width 0.5s 0.3s, visibility 0s 0.8s; left: 50%; width: 0px; visibility: hidden; transform: translateX(-50%); -webkit-transform: translateX(-50%); -webkit-transition: width .5s .3s, visibility 0s .8s;
+}
+.overlay-door.open {
+	transition:width 0.5s; width: 100%; visibility: visible; -webkit-transition: width .5s;
+}
+.overlay-door nav {
+	left: 50%; position: absolute; transform: translateY(-50%) translateX(-50%); -webkit-transform: translateY(-50%) translateX(-50%);
+}
+.overlay-door nav {
+	transition:opacity 0.3s 0.5s; opacity: 0; -webkit-transition: opacity .3s .5s;
+}
+.overlay-door .overlay-close {
+	transition:opacity 0.3s 0.5s; opacity: 0; -webkit-transition: opacity .3s .5s;
+}
+.overlay-door.open nav {
+	opacity: 1; transition-delay: 0.5s; -webkit-transition-delay: .5s;
+}
+.overlay-door.open .overlay-close {
+	opacity: 1; transition-delay: 0.5s; -webkit-transition-delay: .5s;
+}
+.overlay-door.close nav {
+	transition-delay: 0s; -webkit-transition-delay: 0s;
+}
+.overlay-door.close .overlay-close {
+	transition-delay: 0s; -webkit-transition-delay: 0s;
+}
+.vm-sign-up-section .text {
+	color: rgb(255, 255, 255);
+}
+.vm-sign-up-section .description {
+	margin: 5px 0px;
+}
+.vm-sign-up-section .top-big-link {
+	margin-top: 35px;
+}
+.form-box {
+	border: 1px solid rgb(159, 216, 255); border-image: none; margin-top: 50px;
+}
+.form-top {
+	padding: 15px 25px; border-radius: 4px 4px 0px 0px; text-align: left; overflow: hidden; -webkit-border-radius: 4px 4px 0 0; -moz-border-radius: 4px 4px 0 0;
+}
+.form-bottom {
+	padding: 10px 25px 30px; border-radius: 0px 0px 4px 4px; text-align: left; -webkit-border-radius: 0 0 4px 4px; -moz-border-radius: 0 0 4px 4px;
+}
+.form-top-left {
+	width: 75%; padding-top: 25px; float: left;
+}
+.form-top-right {
+	width: 25%; text-align: right; color: rgb(221, 221, 221); line-height: 100px; padding-top: 5px; font-size: 66px; float: left;
+}
+.form-top-left h3 {
+	color: rgb(255, 255, 255); line-height: 30px; font-size: 26px; font-weight: 300; margin-top: 0px;
+}
+.overlay-door.open .overlay-wrapper {
+	opacity: 1; transition-delay: 0.5s; -webkit-transition-delay: .5s;
+}
+.overlay-door.close .overlay-wrapper {
+	opacity: 1; transition-delay: 0s; -webkit-transition-delay: 0s;
+}
+@media all and (max-width:1024px)
+{
+.overlay-door.open {
+	-ms-overflow-y: scroll;
+}
+}
+.vm-plan img {
+	height: 150px; object-fit: contain;
+}
+#vmPaymentModal {
+	z-index: 999999;
+}
+#vmGetAQuoteModal {
+	z-index: 999999;
+}
+.pricing--tenzin .pricing__sentence {
+	padding: 0px 0px 0.5em; color: rgb(156, 160, 169); font-weight: 700; border-bottom-color: rgba(139, 144, 157, 0.18); border-bottom-width: 3px; border-bottom-style: solid;
+}
+.pricing--tenzin .pricing__item:hover {
+	border-color: rgb(45, 216, 45);
+}
+.pricing--tenzin .pricing__item {
+	background: rgb(238, 240, 243); margin: 1em; padding: 2em 2.5em; transition:border-color 0.3s; text-align: left; color: rgb(38, 43, 56); border-top-color: rgb(238, 240, 243); border-top-width: 3px; border-top-style: solid; -webkit-transition: border-color .3s;
+}
+.pricing--tenzin .pricing__title {
+	margin: 0px 0px 1em; font-size: 1em;
+}
+.pricing--tenzin .pricing__price {
+	padding: 0.5em 0px 0.2em; font-size: 1.5em; font-weight: 700; border-top-color: rgba(139, 144, 157, 0.18); border-top-width: 3px; border-top-style: solid;
+}
+.pricing--tenzin .pricing__currency {
+	font-size: 12px;
+}
+.pricing--tenzin .pricing__feature-list {
+	list-style: none; margin: 0px; padding: 0.25em 0px 2.5em; text-align: right; color: rgb(139, 144, 157); font-size: 0.85em; font-style: italic;
+}
+* {
+	box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+*::before {
+	box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+*::after {
+	box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.form-control {
+	padding: 6px 12px; border-radius: 4px; border: 0px currentColor; transition:border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; border-image: none; width: 100%; height: 40px !important; color: rgb(85, 85, 85); line-height: 1.4285; font-size: 14px; vertical-align: middle; display: block; box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075); background-color: rgb(255, 255, 255); -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.vm-show-more-features {
+	display: none;
+}
+#vmPaymentModal .modal-body {
+	height: auto; overflow: hidden; max-height: 600px !important;
+}
+#vmGetAQuoteModal .modal-body {
+	height: auto; overflow: hidden; max-height: 600px !important;
+}
+@media all and (max-width:767px)
+{
+.vm-show-more-features {
+	text-align: center; color: rgb(214, 214, 226); font-size: 14px; margin-top: 10px; margin-bottom: 5px; display: block;
+}
+.vm-show-more-features:hover {
+	color: rgb(255, 212, 0);
+}
+.vm-container {
+	padding-top: 50px !important; font-size: 16px !important;
+}
+.span6 h3 {
+	font-size: 20px;
+}
+.vm-signup-overlay {
+	text-align: center;
+}
+#vmPaymentModal {
+	width: 320px !important;
+}
+#vmGetAQuoteModal {
+	width: 320px !important;
+}
+#vmPaymentModal .modal-body {
+	height: auto; overflow: auto; max-height: 350px !important;
+}
+#vmGetAQuoteModal .modal-body {
+	height: auto; overflow: auto; max-height: 350px !important;
+}
+.vm-signup-overlay .row-fluid.pricing.pricing--tenzin {
+	padding: 25px;
+}
+}
+.viamagus_overlay {
+	z-index: 999999 !important;
+}
+#vmPaymentForm {
+	background: rgb(255, 255, 255); margin: 0px 0px 20px -136px; padding: 25px; left: 50%; top: 90px; text-align: left; color: rgb(0, 0, 0); position: fixed;
+}
+#vmGetAQuoteForm {
+	background: rgb(255, 255, 255); margin: 0px 0px 20px -136px; padding: 25px; left: 50%; top: 90px; text-align: left; color: rgb(0, 0, 0); position: fixed;
+}
+.vm-terms {
+	line-height: 15px;
+}
+#vmPaymentForm h2 {
+	font-size: 26px;
+}
+#vmGetAQuoteForm h2 {
+	font-size: 26px;
+}
+#vmPaymentForm .control-label {
+	display: none;
+}
+#vmGetAQuoteForm .control-label {
+	display: none;
+}
+.viamagus-heading2 {
+	color: rgb(1, 1, 1); letter-spacing: 0px; font-family: "Open Sans" !important; font-size: 26px !important; font-weight: bold;
+}
+#viamagus_Image_Text_5201 .viamagus-heading2.featurette-heading {
+	color: rgb(61, 154, 162) !important; font-family: "Merriweather", serif !important; font-size: 54px !important;
+}
+#viamagus_Image_Text_6835 h2.viamagus-heading2.featurette-heading {
+	color: rgb(61, 154, 162); font-family: "Merriweather", serif !important; font-size: 58px !important;
+}
+#viamagus_Image_Text_1944 h2.viamagus-heading2.featurette-heading {
+	color: rgb(61, 154, 162); font-family: "Merriweather", serif !important; font-size: 58px !important;
+}
+#viamagus_Image_Text_2617 h2.viamagus-heading2.featurette-heading {
+	color: rgb(61, 154, 162); font-family: "Merriweather", serif !important; font-size: 58px !important;
+}
+#viamagus_Image_Text_7174 h2.viamagus-heading2.featurette-heading {
+	color: rgb(255, 255, 255); font-family: "Merriweather", serif !important; font-size: 58px !important;
+}
+#viamagus_Image_Text_1070 h2.viamagus-heading2.featurette-heading {
+	color: rgb(1, 1, 1); font-family: "Merriweather", serif !important; font-size: 58px !important;
+}
+.vm-signup-overlay .viamagus-heading2.featurette-heading {
+	font-size: 28px !important;
+}
+.vm-signup-overlay .viamagus_circlimg .viamagus-heading2 {
+	font-size: 28px !important;
+}
+#viamagus_Contact_Form_4125 .viamagus-button-default {
+	background: rgba(61, 153, 162, 1); border-radius: 0px; border: 0px currentColor; border-image: none; font-weight: normal; margin-top: 20px;
+}
+.vm-signup-overlay hr {
+	margin: 10px 0px; border-top-color: rgb(40, 39, 37) !important; border-bottom-color: currentColor; border-top-width: 1px !important; border-bottom-width: 0px; border-top-style: solid !important; border-bottom-style: none;
+}
+@media all and (max-width:979px)
+{
+#viamagusServiceModal {
+	margin: 15px; left: auto; top: 15%; width: auto !important; overflow: auto !important;
+}
+#serviceDetailsContent {
+	overflow: auto !important;
+}
+}
+@media all and (max-width:500px)
+{
+#vmPaymentModal {
+	margin-left: -160px !important;
+}
+#vmGetAQuoteModal {
+	margin-left: -160px !important;
+}
+#vmPaymentModal label.control-label {
+	display: none;
+}
+#vmGetAQuoteModal label.control-label {
+	display: none;
+}
+#vmPaymentModal .form-control {
+	height: 30px !important;
+}
+#vmGetAQuoteModal .form-control {
+	height: 30px !important;
+}
+#vmPaymentModal h2 {
+	font-size: 24px;
+}
+#vmGetAQuoteModal h2 {
+	font-size: 24px;
+}
+.vm-terms {
+	line-height: 12px; font-size: 10px !important;
+}
+.vm-signup-overlay .span6 table {
+	margin-left: 10px;
+}
+}
+.row-fluid .span2-4 {
+	width: 20%; padding-bottom: 40px; margin-left: 0px !important;
+}
+.no-of-customer-container {
+	padding: 10px; border: 2px solid rgb(255, 255, 255); border-image: none; width: 100%; text-align: center; vertical-align: middle;
+}
+.yellow-f-18 {
+	color: yellow; font-size: 18px;
+}
+.vm-customer-nos-label {
+	
+}
+.vm-customer-nos-logo {
+	margin: auto; width: 150px; display: block;
+}
+.vm-get-a-quote {
+	display: block;
+}
+.vm-get-quote-form {
+	display: none;
+}
+.padding-10 {
+	padding: 10px;
+}
+.font-weight-300 {
+	font-weight: 300;
+}
+.text-center {
+	text-align: center;
+}
+.pad-t-25 {
+	padding-top: 25px;
+}
+.vm-icon img {
+	width: 48px;
+}
+.vm-icon-desc {
+	text-align: left; padding-top: 10px; padding-right: 10px; padding-left: 10px; font-size: 16px;
+}
+.pad-0-20-20-20 {
+	padding: 0px 20px 20px;
+}
+.vm-singlepage-getaquote {
+	border: 0px currentColor; border-image: none;
+}
+.vm-customer-nos-label {
+	font-size: 18px;
+}
+.claim-popup-title {
+	margin: 30px 0px; text-transform: uppercase !important; line-height: 1.4em; font-size: 20px; font-weight: bold;
+}
+.vm-container {
+	color: rgb(255, 255, 255); padding-top: 10px; font-size: 20px; font-weight: bold;
+}
+.vm-signup-overlay .overlay-close {
+	background: url("https://viamagus.net/static/sitebuilder/img/icons/cross.png") no-repeat center; top: 10px; width: 80px; height: 80px; right: 10px; position: absolute;
+}
+.vm-get-quote-form input {
+	border-radius: 0px;
+}
+.vm-get-quote-form .vm-single-page-submit {
+	border-radius: 0px; border: 0px currentColor; border-image: none; color: rgb(255, 255, 255); background-color: rgb(0, 136, 204);
+}
+@media all and (max-width:767px)
+{
+.m-position-relative {
+	position: relative;
+}
+.row-fluid .span2-4 {
+	width: 50%; padding-bottom: 40px; margin-left: 0px !important; float: left;
+}
+.vm-signup-overlay .overlay-close {
+	background: url("https://viamagus.net/static/sitebuilder/img/icons/cross-close.png") no-repeat center; top: 10px; width: 21px; height: 21px; right: 10px; position: absolute;
+}
+.vm-container {
+	padding: 10px 0px 0px !important; font-size: 16px !important;
+}
+.need-help-phone {
+	width: 100%; padding-top: 5px; font-size: 24px; display: block;
+}
+.claim-popup-title {
+	text-transform: uppercase !important; line-height: 1.4em; font-size: 14px; font-weight: normal;
+}
+.vm-icon-desc {
+	text-align: center; padding-top: 10px; padding-right: 10px; padding-left: 10px; font-size: 14px;
+}
+.m-no-customer-container {
+	padding: 0px 20px 20px;
+}
+#vmPaymentForm {
+	background: rgb(255, 255, 255); margin: 0px 0px 20px -136px; padding: 25px; left: 50%; top: -287px; text-align: left; color: rgb(0, 0, 0); position: absolute;
+}
+#vmGetAQuoteForm {
+	background: rgb(255, 255, 255); margin: 0px 0px 20px -136px; padding: 25px; left: 50%; top: -287px; text-align: left; color: rgb(0, 0, 0); position: absolute;
+}
+}
+@media all and (min-width:1200px)
+{
+.row-fluid .span2-4 {
+	width: 20%; margin-left: 0px !important;
+}
+}
+.claim-your-site-label {
+	background: rgb(0, 0, 0); padding: 5px; border-radius: 5px; top: 34%; right: 10px; color: yellow; text-transform: uppercase; font-size: 12px; font-weight: bold; position: fixed;
+}
