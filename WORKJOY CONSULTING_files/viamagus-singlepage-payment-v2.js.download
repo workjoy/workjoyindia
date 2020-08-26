@@ -1,0 +1,1110 @@
+/*!
+* classie - class helper functions
+* from bonzo https://github.com/ded/bonzo
+*
+* classie.has( elem, 'my-class' ) -> true/false
+* classie.add( elem, 'my-new-class' )
+* classie.remove( elem, 'my-unwanted-class' )
+* classie.toggle( elem, 'my-class' )
+*/
+(function(window) {
+    'use strict';
+    function classReg(className) {
+        return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+    }
+    var hasClass, addClass, removeClass;
+    if ('classList'in document.documentElement) {
+        hasClass = function(elem, c) {
+            return elem.classList.contains(c);
+        }
+        ;
+        addClass = function(elem, c) {
+            elem.classList.add(c);
+        }
+        ;
+        removeClass = function(elem, c) {
+            elem.classList.remove(c);
+        }
+        ;
+    } else {
+        hasClass = function(elem, c) {
+            return classReg(c).test(elem.className);
+        }
+        ;
+        addClass = function(elem, c) {
+            if (!hasClass(elem, c)) {
+                elem.className = elem.className + ' ' + c;
+            }
+        }
+        ;
+        removeClass = function(elem, c) {
+            elem.className = elem.className.replace(classReg(c), ' ');
+        }
+        ;
+    }
+    function toggleClass(elem, c) {
+        var fn = hasClass(elem, c) ? removeClass : addClass;
+        fn(elem, c);
+    }
+    var classie = {
+        hasClass: hasClass,
+        addClass: addClass,
+        removeClass: removeClass,
+        toggleClass: toggleClass,
+        has: hasClass,
+        add: addClass,
+        remove: removeClass,
+        toggle: toggleClass
+    };
+    if (typeof define === 'function' && define.amd) {
+        define(classie);
+    } else {
+        window.classie = classie;
+    }
+}
+)(window);
+;window.Modernizr = function(a, b, c) {
+    function x(a) {
+        j.cssText = a
+    }
+    function y(a, b) {
+        return x(prefixes.join(a + ";") + (b || ""))
+    }
+    function z(a, b) {
+        return typeof a === b
+    }
+    function A(a, b) {
+        return !!~("" + a).indexOf(b)
+    }
+    function B(a, b) {
+        for (var d in a) {
+            var e = a[d];
+            if (!A(e, "-") && j[e] !== c)
+                return b == "pfx" ? e : !0
+        }
+        return !1
+    }
+    function C(a, b, d) {
+        for (var e in a) {
+            var f = b[a[e]];
+            if (f !== c)
+                return d === !1 ? a[e] : z(f, "function") ? f.bind(d || b) : f
+        }
+        return !1
+    }
+    function D(a, b, c) {
+        var d = a.charAt(0).toUpperCase() + a.slice(1)
+          , e = (a + " " + n.join(d + " ") + d).split(" ");
+        return z(b, "string") || z(b, "undefined") ? B(e, b) : (e = (a + " " + o.join(d + " ") + d).split(" "),
+        C(e, b, c))
+    }
+    var d = "2.7.1", e = {}, f = !0, g = b.documentElement, h = "modernizr", i = b.createElement(h), j = i.style, k, l = {}.toString, m = "Webkit Moz O ms", n = m.split(" "), o = m.toLowerCase().split(" "), p = {}, q = {}, r = {}, s = [], t = s.slice, u, v = {}.hasOwnProperty, w;
+    !z(v, "undefined") && !z(v.call, "undefined") ? w = function(a, b) {
+        return v.call(a, b)
+    }
+    : w = function(a, b) {
+        return b in a && z(a.constructor.prototype[b], "undefined")
+    }
+    ,
+    Function.prototype.bind || (Function.prototype.bind = function(b) {
+        var c = this;
+        if (typeof c != "function")
+            throw new TypeError;
+        var d = t.call(arguments, 1)
+          , e = function() {
+            if (this instanceof e) {
+                var a = function() {};
+                a.prototype = c.prototype;
+                var f = new a
+                  , g = c.apply(f, d.concat(t.call(arguments)));
+                return Object(g) === g ? g : f
+            }
+            return c.apply(b, d.concat(t.call(arguments)))
+        };
+        return e
+    }
+    ),
+    p.csstransitions = function() {
+        return D("transition")
+    }
+    ;
+    for (var E in p)
+        w(p, E) && (u = E.toLowerCase(),
+        e[u] = p[E](),
+        s.push((e[u] ? "" : "no-") + u));
+    return e.addTest = function(a, b) {
+        if (typeof a == "object")
+            for (var d in a)
+                w(a, d) && e.addTest(d, a[d]);
+        else {
+            a = a.toLowerCase();
+            if (e[a] !== c)
+                return e;
+            b = typeof b == "function" ? b() : b,
+            typeof f != "undefined" && f && (g.className += " " + (b ? "" : "no-") + a),
+            e[a] = b
+        }
+        return e
+    }
+    ,
+    x(""),
+    i = k = null,
+    function(a, b) {
+        function l(a, b) {
+            var c = a.createElement("p")
+              , d = a.getElementsByTagName("head")[0] || a.documentElement;
+            return c.innerHTML = "x<style>" + b + "</style>",
+            d.insertBefore(c.lastChild, d.firstChild)
+        }
+        function m() {
+            var a = s.elements;
+            return typeof a == "string" ? a.split(" ") : a
+        }
+        function n(a) {
+            var b = j[a[h]];
+            return b || (b = {},
+            i++,
+            a[h] = i,
+            j[i] = b),
+            b
+        }
+        function o(a, c, d) {
+            c || (c = b);
+            if (k)
+                return c.createElement(a);
+            d || (d = n(c));
+            var g;
+            return d.cache[a] ? g = d.cache[a].cloneNode() : f.test(a) ? g = (d.cache[a] = d.createElem(a)).cloneNode() : g = d.createElem(a),
+            g.canHaveChildren && !e.test(a) && !g.tagUrn ? d.frag.appendChild(g) : g
+        }
+        function p(a, c) {
+            a || (a = b);
+            if (k)
+                return a.createDocumentFragment();
+            c = c || n(a);
+            var d = c.frag.cloneNode()
+              , e = 0
+              , f = m()
+              , g = f.length;
+            for (; e < g; e++)
+                d.createElement(f[e]);
+            return d
+        }
+        function q(a, b) {
+            b.cache || (b.cache = {},
+            b.createElem = a.createElement,
+            b.createFrag = a.createDocumentFragment,
+            b.frag = b.createFrag()),
+            a.createElement = function(c) {
+                return s.shivMethods ? o(c, a, b) : b.createElem(c)
+            }
+            ,
+            a.createDocumentFragment = Function("h,f", "return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&(" + m().join().replace(/[\w\-]+/g, function(a) {
+                return b.createElem(a),
+                b.frag.createElement(a),
+                'c("' + a + '")'
+            }) + ");return n}")(s, b.frag)
+        }
+        function r(a) {
+            a || (a = b);
+            var c = n(a);
+            return s.shivCSS && !g && !c.hasCSS && (c.hasCSS = !!l(a, "article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),
+            k || q(a, c),
+            a
+        }
+        var c = "3.7.0", d = a.html5 || {}, e = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, f = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i, g, h = "_html5shiv", i = 0, j = {}, k;
+        (function() {
+            try {
+                var a = b.createElement("a");
+                a.innerHTML = "<xyz></xyz>",
+                g = "hidden"in a,
+                k = a.childNodes.length == 1 || function() {
+                    b.createElement("a");
+                    var a = b.createDocumentFragment();
+                    return typeof a.cloneNode == "undefined" || typeof a.createDocumentFragment == "undefined" || typeof a.createElement == "undefined"
+                }()
+            } catch (c) {
+                g = !0,
+                k = !0
+            }
+        }
+        )();
+        var s = {
+            elements: d.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",
+            version: c,
+            shivCSS: d.shivCSS !== !1,
+            supportsUnknownElements: k,
+            shivMethods: d.shivMethods !== !1,
+            type: "default",
+            shivDocument: r,
+            createElement: o,
+            createDocumentFragment: p
+        };
+        a.html5 = s,
+        r(b)
+    }(this, b),
+    e._version = d,
+    e._domPrefixes = o,
+    e._cssomPrefixes = n,
+    e.testProp = function(a) {
+        return B([a])
+    }
+    ,
+    e.testAllProps = D,
+    e.prefixed = function(a, b, c) {
+        return b ? D(a, b, c) : D(a, "pfx")
+    }
+    ,
+    g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + s.join(" ") : ""),
+    e
+}(this, this.document),
+function(a, b, c) {
+    function d(a) {
+        return "[object Function]" == o.call(a)
+    }
+    function e(a) {
+        return "string" == typeof a
+    }
+    function f() {}
+    function g(a) {
+        return !a || "loaded" == a || "complete" == a || "uninitialized" == a
+    }
+    function h() {
+        var a = p.shift();
+        q = 1,
+        a ? a.t ? m(function() {
+            ("c" == a.t ? B.injectCss : B.injectJs)(a.s, 0, a.a, a.x, a.e, 1)
+        }, 0) : (a(),
+        h()) : q = 0
+    }
+    function i(a, c, d, e, f, i, j) {
+        function k(b) {
+            if (!o && g(l.readyState) && (u.r = o = 1,
+            !q && h(),
+            l.onload = l.onreadystatechange = null,
+            b)) {
+                "img" != a && m(function() {
+                    t.removeChild(l)
+                }, 50);
+                for (var d in y[c])
+                    y[c].hasOwnProperty(d) && y[c][d].onload()
+            }
+        }
+        var j = j || B.errorTimeout
+          , l = b.createElement(a)
+          , o = 0
+          , r = 0
+          , u = {
+            t: d,
+            s: c,
+            e: f,
+            a: i,
+            x: j
+        };
+        1 === y[c] && (r = 1,
+        y[c] = []),
+        "object" == a ? l.data = c : (l.src = c,
+        l.type = a),
+        l.width = l.height = "0",
+        l.onerror = l.onload = l.onreadystatechange = function() {
+            k.call(this, r)
+        }
+        ,
+        p.splice(e, 0, u),
+        "img" != a && (r || 2 === y[c] ? (t.insertBefore(l, s ? null : n),
+        m(k, j)) : y[c].push(l))
+    }
+    function j(a, b, c, d, f) {
+        return q = 0,
+        b = b || "j",
+        e(a) ? i("c" == b ? v : u, a, b, this.i++, c, d, f) : (p.splice(this.i++, 0, a),
+        1 == p.length && h()),
+        this
+    }
+    function k() {
+        var a = B;
+        return a.loader = {
+            load: j,
+            i: 0
+        },
+        a
+    }
+    var l = b.documentElement, m = a.setTimeout, n = b.getElementsByTagName("script")[0], o = {}.toString, p = [], q = 0, r = "MozAppearance"in l.style, s = r && !!b.createRange().compareNode, t = s ? l : n.parentNode, l = a.opera && "[object Opera]" == o.call(a.opera), l = !!b.attachEvent && !l, u = r ? "object" : l ? "script" : "img", v = l ? "script" : u, w = Array.isArray || function(a) {
+        return "[object Array]" == o.call(a)
+    }
+    , x = [], y = {}, z = {
+        timeout: function(a, b) {
+            return b.length && (a.timeout = b[0]),
+            a
+        }
+    }, A, B;
+    B = function(a) {
+        function b(a) {
+            var a = a.split("!"), b = x.length, c = a.pop(), d = a.length, c = {
+                url: c,
+                origUrl: c,
+                prefixes: a
+            }, e, f, g;
+            for (f = 0; f < d; f++)
+                g = a[f].split("="),
+                (e = z[g.shift()]) && (c = e(c, g));
+            for (f = 0; f < b; f++)
+                c = x[f](c);
+            return c
+        }
+        function g(a, e, f, g, h) {
+            var i = b(a)
+              , j = i.autoCallback;
+            i.url.split(".").pop().split("?").shift(),
+            i.bypass || (e && (e = d(e) ? e : e[a] || e[g] || e[a.split("/").pop().split("?")[0]]),
+            i.instead ? i.instead(a, e, f, g, h) : (y[i.url] ? i.noexec = !0 : y[i.url] = 1,
+            f.load(i.url, i.forceCSS || !i.forceJS && "css" == i.url.split(".").pop().split("?").shift() ? "c" : c, i.noexec, i.attrs, i.timeout),
+            (d(e) || d(j)) && f.load(function() {
+                k(),
+                e && e(i.origUrl, h, g),
+                j && j(i.origUrl, h, g),
+                y[i.url] = 2
+            })))
+        }
+        function h(a, b) {
+            function c(a, c) {
+                if (a) {
+                    if (e(a))
+                        c || (j = function() {
+                            var a = [].slice.call(arguments);
+                            k.apply(this, a),
+                            l()
+                        }
+                        ),
+                        g(a, j, b, 0, h);
+                    else if (Object(a) === a)
+                        for (n in m = function() {
+                            var b = 0, c;
+                            for (c in a)
+                                a.hasOwnProperty(c) && b++;
+                            return b
+                        }(),
+                        a)
+                            a.hasOwnProperty(n) && (!c && !--m && (d(j) ? j = function() {
+                                var a = [].slice.call(arguments);
+                                k.apply(this, a),
+                                l()
+                            }
+                            : j[n] = function(a) {
+                                return function() {
+                                    var b = [].slice.call(arguments);
+                                    a && a.apply(this, b),
+                                    l()
+                                }
+                            }(k[n])),
+                            g(a[n], j, b, n, h))
+                } else
+                    !c && l()
+            }
+            var h = !!a.test, i = a.load || a.both, j = a.callback || f, k = j, l = a.complete || f, m, n;
+            c(h ? a.yep : a.nope, !!i),
+            i && c(i)
+        }
+        var i, j, l = this.yepnope.loader;
+        if (e(a))
+            g(a, 0, l, 0);
+        else if (w(a))
+            for (i = 0; i < a.length; i++)
+                j = a[i],
+                e(j) ? g(j, 0, l, 0) : w(j) ? B(j) : Object(j) === j && h(j, l);
+        else
+            Object(a) === a && h(a, l)
+    }
+    ,
+    B.addPrefix = function(a, b) {
+        z[a] = b
+    }
+    ,
+    B.addFilter = function(a) {
+        x.push(a)
+    }
+    ,
+    B.errorTimeout = 1e4,
+    null == b.readyState && b.addEventListener && (b.readyState = "loading",
+    b.addEventListener("DOMContentLoaded", A = function() {
+        b.removeEventListener("DOMContentLoaded", A, 0),
+        b.readyState = "complete"
+    }
+    , 0)),
+    a.yepnope = k(),
+    a.yepnope.executeStack = h,
+    a.yepnope.injectJs = function(a, c, d, e, i, j) {
+        var k = b.createElement("script"), l, o, e = e || B.errorTimeout;
+        k.src = a;
+        for (o in d)
+            k.setAttribute(o, d[o]);
+        c = j ? h : c || f,
+        k.onreadystatechange = k.onload = function() {
+            !l && g(k.readyState) && (l = 1,
+            c(),
+            k.onload = k.onreadystatechange = null)
+        }
+        ,
+        m(function() {
+            l || (l = 1,
+            c(1))
+        }, e),
+        i ? k.onload() : n.parentNode.insertBefore(k, n)
+    }
+    ,
+    a.yepnope.injectCss = function(a, c, d, e, g, i) {
+        var e = b.createElement("link"), j, c = i ? h : c || f;
+        e.href = a,
+        e.rel = "stylesheet",
+        e.type = "text/css";
+        for (j in d)
+            e.setAttribute(j, d[j]);
+        g || (n.parentNode.insertBefore(e, n),
+        m(c, 0))
+    }
+}(this, document),
+Modernizr.load = function() {
+    yepnope.apply(window, [].slice.call(arguments, 0))
+}
+;
+var ModalEffects = (function() {
+    function init() {
+        var overlay = document.querySelector('.md-overlay');
+        [].slice.call(document.querySelectorAll('.md-trigger')).forEach(function(el, i) {
+            var modal = document.querySelector('#' + el.getAttribute('data-modal'))
+              , close = modal.querySelector('.md-close');
+            function removeModal(hasPerspective) {
+                classie.remove(modal, 'md-show');
+                if (hasPerspective) {
+                    classie.remove(document.documentElement, 'md-perspective');
+                }
+            }
+            function removeModalHandler() {
+                removeModal(classie.has(el, 'md-setperspective'));
+                $('.vm-site-wrapper').removeClass('blur');
+                $('#vmComingSoonSignUp').removeClass('hide');
+            }
+            el.addEventListener('click', function(ev) {
+                classie.add(modal, 'md-show');
+                overlay.removeEventListener('click', removeModalHandler);
+                overlay.addEventListener('click', removeModalHandler);
+                if (classie.has(el, 'md-setperspective')) {
+                    setTimeout(function() {
+                        classie.add(document.documentElement, 'md-perspective');
+                    }, 25);
+                }
+            });
+            close.addEventListener('click', function(ev) {
+                ev.stopPropagation();
+                removeModalHandler();
+            });
+        });
+    }
+  function loadWelcomePopup() {
+        var that = this;
+        var popupHtml = '';
+        popupHtml = popupHtml + "<div class='claim-your-site-label'>Claim<br> your<br>site!</div>";
+        popupHtml = popupHtml + "<div style='position: fixed;right: 55px;top: 38%;font-size: 12px;color: yellow;text-transform: uppercase;'><img style='width:22px;' src='https://viamagus.net/static/sitebuilder/img/icons/arrow.png'></div>";
+        popupHtml = popupHtml + "<button class='vm-comingsoon-signup' id='vmSinglePageSignUp'  href='#'>+</button>";
+        document.querySelector('body').insertAdjacentHTML('beforeend', popupHtml);
+        init();
+    }
+    loadWelcomePopup();
+}
+)();
+var Viamagus_Singlepage_Payment = {
+    _contextPath: '',
+    _paymentUrl: 'https://viamagus.com',
+    _businessId: '',
+    _init: function() {
+        $('.vm-comingsoon-help').trigger('click');
+        this.loadLandingPagePopup();
+        this.loadClaimYourSitePopup();
+        this.loadWebsiteContentCorrectionScript();
+        this.addViamagusGoogleAnalyticsClickEvent();
+        this.registerContactusFormSubmitEvent();
+    },
+    closeHelpPopover: function() {
+        $('.vm-comingsoon-signup').removeClass('hide');
+    },
+    closeHelpPopover: function() {
+        $('.vm-comingsoon-signup').removeClass('hide');
+    },
+    loadClaimYourSitePopup: function() {
+        var popoverHtml = '';
+        popoverHtml = popoverHtml + "<div class='vm-signup-overlay overlay-door'>";
+popoverHtml = popoverHtml + "        <button type='button' class='overlay-close'>Close</button>";
+popoverHtml = popoverHtml + "        <div class='vm-container container'>";
+popoverHtml = popoverHtml + "            <i class='fa fa-phone'></i> Need help? Call Us <span class='need-help-phone'> <a class='claim-popup-70225-93790' href='tel:+91 70225 93790' style='color: #fff; text-decoration: none; '> +91 7022-593-790</a><a class='claim-popup-70225-93786' href='tel:+91 70225 93786' style='color: #fff; text-decoration: none; '>/86</a><a class='claim-popup-70225-93791' href='tel:+91 70225 93791' style='color: #fff; text-decoration: none; '>/91</a>   </span>";
+popoverHtml = popoverHtml + "        </div>";
+popoverHtml = popoverHtml + "        <div class='overlay-wrapper'>";
+popoverHtml = popoverHtml + "            <div class='overlay-wrapper-container'>";
+popoverHtml = popoverHtml + "                <div class='container vm-sign-up-section'>";
+popoverHtml = popoverHtml + "                    <div class='row-fluid'>";
+popoverHtml = popoverHtml + "                        <div class='span12 text'>";
+popoverHtml = popoverHtml + "                            <div class='description'>";
+popoverHtml = popoverHtml + "                                <h3 class='claim-popup-title'>Get a fantastic, modern, mobile ready website for your business!</h3>";
+popoverHtml = popoverHtml + "                            </div>";
+popoverHtml = popoverHtml + "                            <div class='row-fluid'>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/responsive.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>100% Responsive</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/ssl.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>SSL(HTTPS)</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/dragndrop.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Drag & Drop To Edit</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/unlimited-bandwidth.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Unlimited Bandwidth</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/payments.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Collect Online Payments</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/cloud-hosting.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Automated Cloud Hosting</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/premium-support.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Premium Support</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/blog.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Blog</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/imagevideos.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Add Videos and Images</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/analytics.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Connect Google Analytics</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/seo.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Full Support For SEO</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/domain.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Connect Your Own Domain</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/stock-image.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Stock Images</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/forms.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Custom Forms</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span2-4'>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon'>";
+popoverHtml = popoverHtml + "                                        <img src='https://viamagus.net/static/sitebuilder/img/icons/whatsapp.png'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <div class='vm-icon-desc'>Live Chat Tool</div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                            </div>";
+popoverHtml = popoverHtml + "                            <div class='row-fluid'>";  
+popoverHtml = popoverHtml + "                                <div class='span4 pad-0-20-20-20'>";
+popoverHtml = popoverHtml + "                                    <div class='no-of-customer-container'>";
+popoverHtml = popoverHtml + "                                        <span class='vm-customer-nos yellow-f-18' data-animated='false'>5000</span>";
+popoverHtml = popoverHtml + "                                        <span class='yellow-f-18'>+</span>";
+popoverHtml = popoverHtml + "                                        <span class='vm-customer-nos-label'>Customers Trust</span>";
+popoverHtml = popoverHtml + "                                        <img alt='Viamagus' src='https://viamagus.net/static/viamagus/img/logo.png' class='vm-customer-nos-logo'>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span4 pad-0-20-20-20 m-position-relative'>";
+popoverHtml = popoverHtml + "                                    <div class='pricing__item vm-get-a-quote'>";
+popoverHtml = popoverHtml + "                                        <button class='pricing__action vm-singlepage-getaquote'>Get A Free Quote</button>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                    <form id='vmGetAQuoteForm' class='vm-get-quote-form' novalidate='novalidate'>";
+popoverHtml = popoverHtml + "                                        <div class='padding-10'>";
+popoverHtml = popoverHtml + "                                            <button type='button' class='vm-get-a-quote-close close' data-dismiss='modal' aria-label='Close'>";
+popoverHtml = popoverHtml + "                                                <span aria-hidden='true'>×</span>";
+popoverHtml = popoverHtml + "                                            </button>";
+popoverHtml = popoverHtml + "                                            <h2 class='text-center font-weight-300' id='signUpHeading'>Get A Free Quote</h2>";
+popoverHtml = popoverHtml + "                                        </div>";
+popoverHtml = popoverHtml + "                                        <div class='control-group'>";
+popoverHtml = popoverHtml + "                                            <label class='control-label' for='password'>Name</label>";
+popoverHtml = popoverHtml + "                                            <div class='controls'>";
+popoverHtml = popoverHtml + "                                                <input class='input-block-level form-control' id='getQuoteCustName' name='getQuoteCustName' required='' type='text' placeholder='Name' aria-required='true'>";
+popoverHtml = popoverHtml + "                                            </div>";
+popoverHtml = popoverHtml + "                                        </div>";
+popoverHtml = popoverHtml + "                                        <div class='control-group'>";
+popoverHtml = popoverHtml + "                                            <label class='control-label' for='email'>Email</label>";
+popoverHtml = popoverHtml + "                                            <div class='controls'>";
+popoverHtml = popoverHtml + "                                                <input class='input-block-level form-control' id='getQuoteCustEmail' name='getQuoteCustEmail' required='' type='email' placeholder='Email Id' aria-required='true'>";
+popoverHtml = popoverHtml + "                                            </div>";
+popoverHtml = popoverHtml + "                                        </div>";
+popoverHtml = popoverHtml + "                                        <div class='control-group'>";
+popoverHtml = popoverHtml + "                                            <label class='control-label' for='mobil'>Mobile No.</label>";
+popoverHtml = popoverHtml + "                                            <div class='controls'>";
+popoverHtml = popoverHtml + "                                                <div class='intl-tel'>";
+popoverHtml = popoverHtml + "                                                    <input type='tel' name='getQuoteCustPhoneNo' placeholder='Mobile No.' class='form-control' id='getQuoteCustPhoneNo'>";
+popoverHtml = popoverHtml + "                                                </div>";
+popoverHtml = popoverHtml + "                                            </div>";
+popoverHtml = popoverHtml + "                                        </div>";
+popoverHtml = popoverHtml + "                                        <div class='text-center pad-t-25'>";
+popoverHtml = popoverHtml + "                                            <button type='submit' id='vmWebsiteGetAQuoteButton' class='btn btn-medium btn-primary vm-single-page-submit'>SEND</button>";
+popoverHtml = popoverHtml + "                                        </div>";
+popoverHtml = popoverHtml + "                                    </form>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                                <div class='span4 pad-0-20-20-20'>";
+popoverHtml = popoverHtml + "                                    <div align='center' style='width: 100%;'>";
+popoverHtml = popoverHtml + "                                        <div style='background:#fff;width: 147px;height: 68px;padding: 10px;'>";
+popoverHtml = popoverHtml + "                                            <a target='_blank' href='https://aws.amazon.com/what-is-cloud-computing'>";
+popoverHtml = popoverHtml + "                                                <img src='https://awsmedia.s3.amazonaws.com/AWS_Logo_PoweredBy_127px.png' alt='Powered by AWS Cloud Computing'>";
+popoverHtml = popoverHtml + "                                            </a>";
+popoverHtml = popoverHtml + "                                        </div>";
+popoverHtml = popoverHtml + "                                    </div>";
+popoverHtml = popoverHtml + "                                </div>";
+popoverHtml = popoverHtml + "                            </div>";
+popoverHtml = popoverHtml + "                        </div>";
+popoverHtml = popoverHtml + "                    </div>";
+popoverHtml = popoverHtml + "                </div>";
+popoverHtml = popoverHtml + "            </div>";
+popoverHtml = popoverHtml + "        </div>";
+popoverHtml = popoverHtml + "    </div>";
+        $('body').append(popoverHtml);
+        this.registerSignUpOverlay();
+        this.registerGetAQuotePopover();
+        this.registerShowHideFeatures();        
+    },
+    registerSignUpOverlay: function() {
+        var triggerBttn = document.getElementById('vmSinglePageSignUp')
+          , overlay = document.querySelector('div.vm-signup-overlay')
+          , closeBttn = overlay.querySelector('button.overlay-close');
+        transEndEventNames = {
+            'WebkitTransition': 'webkitTransitionEnd',
+            'MozTransition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'msTransition': 'MSTransitionEnd',
+            'transition': 'transitionend'
+        },
+        transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+        support = {
+            transitions: Modernizr.csstransitions
+        };
+        function toggleOverlay() {
+            if (classie.has(overlay, 'open')) {
+                classie.remove(overlay, 'open');
+                classie.add(overlay, 'close');
+                var onEndTransitionFn = function(ev) {
+                    if (support.transitions) {
+                        if (ev.propertyName !== 'visibility')
+                            return;
+                        this.removeEventListener(transEndEventName, onEndTransitionFn);
+                    }
+                    classie.remove(overlay, 'close');
+                };
+                if (support.transitions) {
+                    overlay.addEventListener(transEndEventName, onEndTransitionFn);
+                } else {
+                    onEndTransitionFn();
+                }
+            } else if (!classie.has(overlay, 'close')) {
+                classie.add(overlay, 'open');
+            }
+          
+        }
+        triggerBttn.addEventListener('click', toggleOverlay);
+        closeBttn.addEventListener('click', toggleOverlay);
+    },
+
+    loadWebsiteContentCorrectionScript: function() {
+        var companyName= $("#logoName").text();
+        if($('div:contains("Really cool description for this section goes here!")')){
+            $('div:contains("Really cool description for this section goes here!"):last').remove();
+            $('div:contains("Really cool description for this section goes here!"):last').remove();
+        }
+        var originalAboutus=$("#aboutBusiness").text();
+        var subStr = originalAboutus.match("was set up to (.*). At");
+        if(subStr != null && subStr !=""){
+            var industryType=subStr[1]; 
+            industryType=industryType.slice(0,-1);
+            var aboutCompany= companyName+" is a India based company working towards excellence in the "+ industryType +", and believe in pursuing business through innovation and technology. Our team comes with several years of industry experience, and comprise of a highly motivated set of specialists.<br /><br />We are a experienced, dedicated and energetic team, cognizant of the market and our customer's requirements.<br /><br />Keep scrolling to know more about our offerings and hear from our happy clients!";
+            $("#aboutBusiness").html(aboutCompany);
+        }
+    },
+    loadLandingPagePopup: function() {
+        var popoverHtml = '';
+        popoverHtml = popoverHtml + '<div class="modal fade in" id="viamagusServiceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:600px;    background-color: yellow;margin-top: 20px;display: none">';
+        popoverHtml = popoverHtml +'<div class="modal-dialog" style="left: 0%; ">';
+        popoverHtml = popoverHtml +'<div class="modal-content">'; 
+        popoverHtml = popoverHtml +' <div id="serviceDetailsContent" class="modal-body" style="overflow: hidden; max-height: 550px;">';
+        popoverHtml = popoverHtml +'<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style=" font-size: 50px;">&times;</button>'; 
+        popoverHtml = popoverHtml +'<div class="viamagus-service-details" style="text-align: center;padding: 10px 50px;"><br><br>';
+        popoverHtml = popoverHtml +'<div class="modal-content">'; 
+        popoverHtml = popoverHtml +'<h1 style="font-size: 80px;">Hi!</h1><br>';
+        popoverHtml = popoverHtml +'<h3 style="font-size: 20px;line-height: 1.2">We are Viamagus, and we have created this website especially for you.<br><br>We have made all the section of this website completely editable,which allows you the freedom to customize as per your requirement.<br><br> We hope you like what you see!<br>Team Viamagus</h1>'; 
+        popoverHtml = popoverHtml +'<h3 style="font-size: 20px;line-height: 1.2">Call:<br><a href="tel:+917022593790">+91 70-2259-3790</a><br><a href="tel:+917022593791">+91 70-2259-3791</a><br>Email: <br><a href="mailto:hi@viamagus.com" target="_top" itemprop="email">hi@viamagus.com</a> </h3>';        
+        popoverHtml = popoverHtml +'</div></div></div></div></div>';        
+        $('body').append(popoverHtml);
+                           
+    },   
+ 
+   
+    registerGetAQuotePopover: function() {
+        var that = this;
+        $('.vm-singlepage-getaquote').unbind();
+        $('.vm-singlepage-getaquote').click(function(e) {
+            e.preventDefault();
+            var popupHtml = '';
+            popupHtml = '<div tabindex="-1" class="modal show" id="vmGetAQuoteModal" aria-hidden="true"  style="width:400px;left:50%;top:5%;margin-left:-200px;border-radius:0">' + '    <form id="vmGetAQuoteForm" class="vm-get-quote-form" style="display: block;margin:0">' + '     <div class="modal-body">' + '<div style="padding:10px;">' + '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '      <h2 class="text-center"  style="font-weight:300"  id="signUpHeading">Get A Free Quote</h2></div>' + '        <div class="control-group">' + '              <label class="control-label" for="password">Name</label>' + '            <div class="controls">' + '                    <input class="input-block-level form-control" id="getQuoteCustName" name="getQuoteCustName" required type="text" placeholder="Name">' + '            </div> </div>' + '        <div class="control-group">' + '              <label class="control-label" for="email">Email</label>' + '              <div class="controls">' + '                <input class="input-block-level form-control" id="getQuoteCustEmail" name="getQuoteCustEmail" required type="email" placeholder="abc@abc.com">' + '            </div>' + '        </div>' + '        <div class="control-group">' + '              <label class="control-label" for="mobil">Mobile No.</label>' + '              <div class="controls">' + '                <input type="tel" name="getQuoteCustPhoneNo"  placeholder="Mobile No." class="form-control viamagus-phone" id="getQuoteCustPhoneNo">' + '            </div>' + '        </div>' + ' </div> <div class="modal-footer" style="text-align:center;">' + '    <button type="submit" id="vmWebsiteGetAQuoteButton" class="btn btn-medium btn-primary vm-single-page-submit">SEND</button>' + '   </div>  </form>' + '</div>';
+            if (!$('#vmGetAQuoteModal').length) {}
+            $('.vm-get-a-quote').hide();
+            $('#vmGetAQuoteForm').show();
+            $('.vm-get-a-quote-close').unbind();
+            $('.vm-get-a-quote-close').click(function(e) {
+                $('.vm-get-a-quote').show();
+                $('#vmGetAQuoteForm').hide();
+            });
+            that.registerGetAQuoteSubmitEvent();
+            that.initPhonePlugin();
+            
+        });
+    },
+    registerShowHideFeatures: function() {
+        $('.vm-show-more-features').unbind();
+        $('.vm-show-more-features').click(function(e) {
+            e.preventDefault();
+            $('.vm-features-row-2').toggle();
+            $('.vm-features-row-3').toggle();
+            $(this).html('Hide More features');
+        });
+    },
+    initPhonePlugin: function() {
+        $('.viamagus-phone').intlTelInput({
+            defaultCountry: 'IN',
+            utilsScript: "/static/sitebuilder/js/utils.js"
+        });
+        this.initPhonePluginValidation();
+    },
+    initPhonePluginValidation: function() {
+        if ($('.viamagus-phone').length) {
+            $('.viamagus-phone').each(function(index, e) {
+                var fieldId = $(e).attr("id");
+                var phoneNo = $('#' + fieldId).val();
+                var phoneNoObj = $('#' + fieldId);
+                phoneNoObj.blur(function() {
+                    if (phoneNoObj.val() != "") {
+                        if (phoneNoObj.intlTelInput("isValidNumber")) {
+                            $('#error-msg-' + fieldId).addClass("hide");
+                        } else {
+                            $('#error-msg-' + fieldId).removeClass("hide");
+                        }
+                    }
+                });
+            });
+        }
+    },
+    registerGetAQuoteSubmitEvent: function() {
+        var that = this;
+        $("#vmGetAQuoteForm").validate({
+            rules: {
+                getQuoteCustName: "required",
+                getQuoteCustEmail: {
+                    required: true,
+                    email: true
+                },
+                getQuoteCustPhoneNo: "required"
+            },
+            messages: {
+                getQuoteCustName: "Please enter your Name",
+                getQuoteCustEmail: "Please enter a valid email address",
+                getQuoteCustPhoneNo: "Please enter a valid mobile no"
+            }
+        });
+        $('#vmGetAQuoteForm').unbind('submit');
+        $('#vmGetAQuoteForm').submit(function(event) {
+            event.preventDefault();
+            var validator = $('#vmGetAQuoteForm').validate();
+            if ($('#vmGetAQuoteForm').valid()) {
+                that.sendWebsiteQuoteRequest();
+            }
+        });
+    },
+
+    registerContactusFormSubmitEvent: function() {
+        var that = this;
+        $(".contactUsForm").validate({
+            rules: {
+                customerName: "required",
+                customerEmail: {
+                    required: true,
+                    email: true
+                },
+                customerPhone: "required",
+                customerMessage: "required"
+            },
+            messages: {
+                customerName: "Please enter your Name",
+                customerEmail: "Please enter a valid email address",
+                customerPhone: "Please enter a valid mobile no",
+                customerMessage: "Please enter your message"
+            }
+        });
+        $('.contactUsForm').unbind('submit');
+        $('.contactUsForm').submit(function(event) {
+            event.preventDefault();
+            var validator = $('.contactUsForm').validate();
+            if ($('.contactUsForm').valid()) {
+                that.sendContactUsRequest();
+            }
+        });
+    },
+
+    
+    sendWebsiteQuoteRequest: function() {
+        $.ajax({
+            url: 'https://viamagus.net/REST/general/getAFreeQuoteEmail/',
+            type: 'POST',
+            data: {
+                format: 'json',
+                customerName: $('#getQuoteCustName').val(),
+                emailId: $('#getQuoteCustEmail').val(),
+                mobileNo: $('#getQuoteCustPhoneNo').val(),
+                websiteUrl: window.location.hostname,
+                accessToken: 'viamagusgetquote'
+            },
+            dataType: 'jsonp',
+            jsonp: 'jsonCallback'
+        }).done(function(data) {
+            alert("Thank you for contacting us. We shall get back to you at the earliest!");
+            $('#getQuoteCustName').val('');
+            $('#getQuoteCustEmail').val('');
+            $('#getQuoteCustPhoneNo').val('');
+        });
+       
+    },
+
+     sendContactUsRequest: function() {
+        $.ajax({
+            url: '/contactusFormSubmit',
+            type: 'POST',
+            data: {
+                customerName: $('#customerName').val(),
+                emailId: $('#customerEmail').val(),
+                mobileNo: $('#customerPhone').val(),
+                websiteUrl: window.location.hostname,
+                customerMessage: $('#customerMessage').val(),
+                adminEmailId: $("#contactUsEmailId").text()
+            },
+           
+        }).done(
+            function(data) {
+                alert("Thank you for contacting us. We shall get back to you at the earliest!");
+                $('#customerName').val('');
+                $('#customerEmail').val('');
+                $('#customerPhone').val('');
+                $('#customerMessage').val('');
+               }).fail(function(data) {
+                   alert("Unsuccessfull")
+               });
+       
+     },
+    submitSinglePagePayment: function() {
+        var that = this;
+        var paymentAmount = "6999";
+        var successUrl = "https://viamagus.net/register/paymentSuccess.html?txnId=";
+        var cancelUrl = location.href;
+        var failureUrl = "https://viamagus.net/register/paymentFailure.html?txnId=";
+        $('#vmWebsitePaymentButton').attr("disabled", "disabled");
+        var paymentMode = "razorpay";
+        var txnCurrency = 'INR';
+        var productInfoJson = '';
+        var country, state, city, countryCode = "";
+        var reqOptions = {
+            url: that._paymentUrl + '/REST/payment/saveSinglePagePayment',
+            data: {
+                format: 'json',
+                type: 'POST',
+                paymentAmount: paymentAmount,
+                productName: 'Viamagus Single Page Fee',
+                customerName: $('#paymentCustName').val(),
+                customerEmail: $('#paymentCustEmail').val(),
+                customerPhoneNo: $('#paymentCustPhoneNo').val(),
+                addressLineOne: '',
+                addressLineTwo: '',
+                state: state,
+                city: city,
+                country: country,
+                countryCode: countryCode,
+                pincode: '',
+                successUrl: successUrl,
+                cancelUrl: cancelUrl,
+                failureUrl: failureUrl,
+                entityId: that._businessId,
+                entityType: 'website',
+                callBackProcess: '',
+                originUrl: location.href,
+                paymentMode: paymentMode,
+                productInfoJson: productInfoJson,
+                txnCurrency: txnCurrency,
+                isTestMode: 'Y'
+            },
+            callback: function(data, uniqueId) {
+                if (paymentMode == 'razorpay' && data.result.paymentGateway == 'razorpay') {
+                    that.loadRazorPay(data, uniqueId, data.result.paymentGateway);
+                }
+                $('#vmPaymentModal').modal('hide');
+            },
+            errorCallBack: function() {
+                $('#vmWebsitePaymentButton').removeAttr("disabled");
+                alert("Transaction Failed.");
+            },
+            async: false
+        };
+        new viamagusTransactionManager(reqOptions);
+    },
+    loadRazorPay: function(data, uniqueId, paymentGateway) {
+        var that = this;
+        var razorPayUrl = "https://checkout.razorpay.com/v1/checkout.js";
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+        if (script.readyState) {
+            script.onreadystatechange = function() {
+                if (script.readyState == "loaded" || script.readyState == "complete") {
+                    script.onreadystatechange = null;
+                    that.invokeRazorPay(data, uniqueId, paymentGateway);
+                }
+            }
+            ;
+        } else {
+            script.onload = function() {
+                that.invokeRazorPay(data, uniqueId);
+            }
+            ;
+        }
+        script.src = razorPayUrl;
+        document.body.appendChild(script);
+    },
+    invokeRazorPay: function(data, uniqueId, paymentGateway) {
+        var that = this;
+        var razorPayOptions = {
+            "key": data.result.apiKey,
+            "amount": parseFloat(6999 * 100),
+            "name": data.result.merchantName,
+            "description": uniqueId,
+            "image": "",
+            "handler": function(response) {
+                new viamagusLoader('body');
+                that.submitToRazorPayHandler(data, uniqueId, paymentGateway, response.razorpay_payment_id);
+            },
+            "prefill": {
+                "name": $('#paymentCustName').val(),
+                "email": $('#paymentCustEmail').val(),
+                "contact": $('#paymentCustPhoneNo').val().replace(/ /g, "").replace("+", "")
+            },
+            "notes": {
+                "txnId": uniqueId
+            },
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        new Razorpay(razorPayOptions).open();
+    },
+    submitToRazorPayHandler: function(data, uniqueId, paymentMode, razorPayId) {
+        var that = this;
+        this.submitToUrl(data.result.paymentVerficationUrl, {
+            txnid: uniqueId,
+            amount: 6999,
+            razorpayId: razorPayId,
+            productinfo: 'Viamagus Single Page Fee',
+            firstname: $('#customerName').val(),
+            email: $('#customerEmail').val(),
+            paymentMode: paymentMode
+        });
+    },
+    submitToUrl: function(path, params, method) {
+        method = method || "post";
+        var form = document.createElement("form");
+        form._submit_function_ = form.submit;
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+        for (var key in params) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+            form.appendChild(hiddenField);
+        }
+        document.body.appendChild(form);
+        form._submit_function_();
+    },
+    loadCompanyInfo: function() {
+        var that = this;
+        $.ajax({
+            url: '/REST/general/loadCompanyInformation/',
+            type: 'POST',
+            data: {
+                format: 'json'
+            },
+            dataType: 'jsonp',
+            jsonp: 'jsonCallback'
+        }).done(function(data) {
+            if (data.result != null) {
+                that._businessId = data.result.businessId;
+            }
+        });
+    },
+    registerViamagusClickEvent: function() {
+        $('#goUp').unbind();
+        $('#goUp').click(function(e) {
+            if (ga) {
+                ga('send', 'event', 'Campaign Website', 'click-viamagus-poweredby-link', 'click-viamagus-poweredby-link');
+            }
+        });
+    },
+    addViamagusGoogleAnalyticsClickEvent: function(){
+        if (ga) {
+            $(".vm-comingsoon-signup").attr("onclick","ga('send', 'event', 'Campaign Website', 'Claim Your Site Link', 'Claim Your Site Link');");
+            $("#vmWebsiteGetAQuoteButton").attr("onclick","ga('send', 'event', 'Campaign Website', 'Get A Free Quote Form Submit Button', 'Get A Free Quote Form Submit Button');");
+            $(".contactus_submit_button").attr("onclick","ga('send', 'event', 'Campaign Website', 'Contactus Send Button', 'Contactus Send Button');");
+            $(".viamagus-button-learnmore").attr("onclick","ga('send', 'event', 'Campaign Website', 'Hero Learn More Button', 'Hero Learn More Button');");
+            $(".vm-singlepage-getaquote").attr("onclick","ga('send', 'event', 'Campaign Website', 'Get A Free Quote Button', 'Get A Free Quote Button');");
+            $(".claim-popup-70225-93790").attr("onclick","ga('send', 'event', 'Campaign Website', 'Claim Popup 7022-593-790', 'Claim Popup 7022-593-790');");
+            $(".claim-popup-70225-93791").attr("onclick","ga('send', 'event', 'Campaign Website', 'Claim Popup 7022-593-791', 'Claim Popup 7022-593-791');");
+            $(".claim-popup-70225-93786").attr("onclick","ga('send', 'event', 'Campaign Website', 'Claim Popup 7022-593-786', 'Claim Popup 7022-593-786');");
+            $(".viamagus-customer-phoneNo").attr("onclick","ga('send', 'event', 'Campaign Website', 'Contactus Phone Number', 'Contactus Phone Number');");
+            $(".viamagus-customer-email").attr("onclick","ga('send', 'event', 'Campaign Website', 'Contactus Email Id', 'Contactus Email Id');");
+        }
+    }
+};
+$(document).ready(function() {
+    Viamagus_Singlepage_Payment._init();
+});
